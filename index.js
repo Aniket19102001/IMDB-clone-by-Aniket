@@ -2,11 +2,9 @@ let movieNameRef = document.getElementById("movie-name");
 let searchBtn = document.getElementById("search-btn");
 let result = document.getElementById("result");
 
-//Function to fetch data from API
 let getMovie = () => {
   let movieName = movieNameRef.value;
   let url = `https://www.omdbapi.com/?t=${movieName}&apikey=${key}`;
-  //If input field is empty
   if (movieName.length <= 0) {
     result.innerHTML = `<h3 class="msg">Please Enter A Movie Name</h3>`;
   }
@@ -46,14 +44,12 @@ let getMovie = () => {
             
         `;
         }
-        //If movie does NOT exists in database
         else {
           result.innerHTML = `<h3 class='msg'>${data.Error}</h3>`;
         }
       })
-      //If error occurs
       .catch(() => {
-        result.innerHTML = `<h3 class="msg">Error Occured</h3>`;
+        result.innerHTML = `<h3 class="msg">OOps Error </h3>`;
       });
   }
 };
